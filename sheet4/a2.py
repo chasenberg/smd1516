@@ -22,6 +22,9 @@ histogramm2 = r.TH2D("histogramm2", "histogramm2",30,15,15,30,-10,15)
 
 histogramm = r.TH2D("histogramm", "histogramm",30,15,15,30,-10,15)
 histogramm2 = r.TH2D("histogramm2", "histogramm2",30,15,15,30,-10,15)
+
+cov_12 = np.array([np.zeros(2),np.zeros(2)])
+
 def population1(n):
 	mu_x1 = 0
 	sigma_x1 = 1.5
@@ -121,7 +124,16 @@ print(cov_2[0][1],"\t",cov_2[1][1],"\n")
 print("Korrelationskoeffizient: ",korrel_0,"\n")
 
 
-# Berechnung der statistsischen Groessen fuer die Gesamtheit
+#kombinierte Kovarianzmatrix
+cov_12[0][0] = 0.5*(cov_1[0][0]+cov_2[0][0]);
+cov_12[1][0] = 0.5*(cov_1[1][0]+cov_2[1][0]);
+cov_12[0][1] = cov_12[1][0];
+cov_12[1][1] = 0.5*(cov_1[1][1]+cov_2[1][1]);
+
+#Ausgabe
+print("Kombinierte Kovarianzmatrix:","\n")
+print(cov_12[0][0],"\t",cov_12[1][0],"\n")
+print(cov_12[0][1],"\t",cov_12[1][1],"\n")
 
 
 
