@@ -66,7 +66,7 @@ covariance2 = np.cov(np.array([x2,y2]))
 correlcoeff1 = np.correlcoeff(np.array([x1,y1]))
 correlcoeff2 = np.correlcoeff(np.array([x2,y2]))
 
-#Ausgabe der ermittelte Größen
+#Ausgabe der ermittelte Groessen
 print("Mittelwerte")
 print(x1_mean, y1_mean, x2_mean, y2_mean)
 print("\n Varianz")
@@ -95,7 +95,7 @@ for i in range(n):
     tree_1.Fill
 tree_1.Write()
 
-#Abspeichern in ROOT-File: Population 2
+#Abspeichern in ROOT-File: Population 
 tree_2 = r.TTree("Population 2", "Population 2")
 data2 = np.zeros((2,1))
 tree_2.Branch("x2", data2[0], "x/D")
