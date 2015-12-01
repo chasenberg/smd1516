@@ -129,7 +129,16 @@ cov_12[0][0] = 0.5*(cov_1[0][0]+cov_2[0][0]);
 cov_12[1][0] = 0.5*(cov_1[1][0]+cov_2[1][0]);
 cov_12[0][1] = cov_12[1][0];
 cov_12[1][1] = 0.5*(cov_1[1][1]+cov_2[1][1]);
+#aenderung der kovarianz matrix -> 4x4?
+#alternativ:
 
+cov_121 = np.array([np.zeros(4),np.zeros(4)])
+cov_121[0][0] = cov_1[0][0]
+cov_121[1][0] = (np.dot((data[1]-y1_mean),(data[0]-x1_mean)))/(n-1)
+cov_121[2][0] = (np.dot((data[2]-x2_mean),(data[0]-x1_mean)))/(n-1)
+cov_121[3][0] = (np.dot((data[3]-y2_mean),(data[0]-x1_mean)))/(n-1)
+cov_121[0][1] = cov_121[1][0]
+cov_121[0][1] = cov_121[1][0]
 #Ausgabe
 print("Kombinierte Kovarianzmatrix:","\n")
 print(cov_12[0][0],"\t",cov_12[1][0],"\n")
